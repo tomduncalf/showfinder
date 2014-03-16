@@ -36,6 +36,7 @@ define([
     }
 
     Finder.prototype.getEpisodesWithCharacters = function(characters) {
+        console.log(characters);
         return this._getEpisodeCollection(this._findEpisodesWithCharacters(this.episodeData, characters));
     }
 
@@ -43,7 +44,7 @@ define([
         var characters = _.map(this.episodeData, function(ep) {
             return ep.characters;
         });
-        return _.uniq(_.flatten(characters));
+        return _.uniq(_.flatten(characters)).sort();
     }
 
     return Finder;

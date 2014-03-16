@@ -1,27 +1,36 @@
 define([
-    'jquery', 'underscore', 'app/Scraper', 'app/Finder', 'app/Views/EpisodesView'
+    'jquery', 'underscore', 'app/Scraper', 'app/Finder', 'app/Views/EpisodesView', 'select2'
 ], function($, _, Scraper, Finder, EpisodesView) {
     var EpisodeFinderController = function() {
+        this._initDom();
+
         var scraper = new Scraper();
         this.finder = new Finder();
 
         scraper.go().done(function(episodeData) {
             this.finder.setData(episodeData);
-            console.log(this.finder.getAllCharacters());
-            this.initForm();
+            this._initForm();
         }.bind(this));
     }
 
-    EpisodeFinderController.prototype.initForm = function() {
-        $('#js-search-form').submit(function(e) {
+    EpisodeFinderController.prototype._initDom = function() {
+        this.$form = $('#js-search-form');
+        this.$results = $('#js-results');
+        this.$characterNames = $('#character-names');
+        this.$characterNames.select2();
+    }
+
+    EpisodeFinderController.prototype._initForm = function() {
+        var characters = this.finder.getAllCharacters();
+        characters.forEach(function(character) {
+            this.$characterNames.append('<option value="' + character + '">' + character + '</option>');
+        }.bind(this));
+
+        this.$form.submit(function(e) {
             e.preventDefault();
-            var episodesCollection = this.finder.getEpisodesWithCharacters(
-                _.map($('#character-names').val().split(','), function(name) {
-                    return name.trim();
-                })
-            );
+            var episodesCollection = this.finder.getEpisodesWithCharacters(this.$characterNames.val());
             var view = new EpisodesView({ collection: episodesCollection });
-            $('#js-results').html(view.render().el);
+            this.$results.html(view.render().el);
         }.bind(this));
     }
 

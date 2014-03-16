@@ -12,6 +12,8 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="/bower_components/select2/select2.css">
+        <link rel="stylesheet" href="/bower_components/select2/select2-bootstrap.css">
         <!-- endbuild -->
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="bower_components/modernizr/modernizr.js"></script>
@@ -35,12 +37,12 @@
                 Find epsiodes of
                 <div class="form-group">
                     <label class="sr-only" for="show-name">Show name</label>
-                    <input type="text" class="form-control" id="show-name" placeholder="Show name" value="Peep Show" disabled>
+                    <input type="text" class="form-control form-control" id="show-name" placeholder="Show name" value="Peep Show" disabled>
                 </div>
                 featuring
                 <div class="form-group">
                     <label class="sr-only" for="character-names">Character names</label>
-                    <input type="text" class="form-control" id="character-names" placeholder="Character names">
+                    <select multiple class="form-control form-control-wide" id="character-names"></select>
                 </div>
                 <button type="submit" class="btn btn-default">Search</button>
             </form>
