@@ -19,6 +19,7 @@ define([
             $a.attr('href', this.model.get("href"));
             $a.html(this.model.get("title"));
             this.$el.append($a);
+            this.$el.append($('<span> (' + this.model.get("characters").join(", ") + ')</span>'));
             return this;
         }
     });

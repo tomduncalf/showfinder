@@ -36,7 +36,6 @@ define([
     }
 
     Finder.prototype.getEpisodesWithCharacters = function(characters) {
-        console.log(characters);
         return this._getEpisodeCollection(this._findEpisodesWithCharacters(this.episodeData, characters));
     }
 
