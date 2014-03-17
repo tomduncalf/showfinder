@@ -1,3 +1,4 @@
+"use strict";
 define([
     'underscore', 'app/Models/Episode', 'app/Collections/Episodes'
 ], function(_, Episode, Episodes) {
@@ -35,8 +36,12 @@ define([
         return episodeCollection;
     }
 
-    Finder.prototype.getEpisodesWithCharacters = function(characters) {
-        return this._getEpisodeCollection(this._findEpisodesWithCharacters(this.episodeData, characters));
+    Finder.prototype.getEpisodesWithCharacters = function(characters, skipConversion) {
+        var episodes = this._findEpisodesWithCharacters(this.episodeData, characters);
+        if(skipConversion !== true) {
+            episodes = this._getEpisodeCollection(episodes);
+        }
+        return episodes;
     }
 
     Finder.prototype.getAllCharacters = function() {

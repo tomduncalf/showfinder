@@ -1,5 +1,6 @@
+"use strict";
 define([
-    'backbone', 'app/models/Episode'
+    'backbone', 'app/Models/Episode'
 ], function(Backbone, Episode) {
     var Episodes = Backbone.Collection.extend({
         model: Episode

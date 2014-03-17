@@ -1,3 +1,4 @@
+"use strict";
 define([
     'jquery', 'underscore', 'app/Scraper', 'app/Finder', 'app/Views/EpisodesView', 'select2'
 ], function($, _, Scraper, Finder, EpisodesView) {

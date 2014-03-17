@@ -9,7 +9,8 @@
     "requirejs": "~2.1.5",
     "requirejs-text": "~2.0.5",
     "modernizr": "~2.6.2",
-    "select2": "~3.4.5"
+    "select2": "~3.4.5",
+    "qunit": "~1.14.0"
   },
   "devDependencies": {}
 }

@@ -1,3 +1,4 @@
+"use strict";
 define([
     'backbone', 'app/Views/EpisodeView'
 ], function(Backbone, EpisodeView) {
