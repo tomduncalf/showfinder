@@ -5,4 +5,5 @@ Very simple Bootstrap test app to use data from IMDB to allow you to find episod
 ## Installation
 
 1. Run `bower install`
-2. Run `grunt serve`
+2. Run `npm install`
+3. Run `grunt serve`
