@@ -31,7 +31,7 @@ define([
         },
         {
             title: "Episode 4",
-            href: "href3",
+            href: "href4",
             characters: [
                 "Character 7",
                 "Character 6",
